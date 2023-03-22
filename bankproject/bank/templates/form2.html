@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Form Page</title>
+  </head>
+  <body>
+    <button onclick="showForm()">Open Form</button>
+    <div id="form-container" style="display: none">
+      <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+        <label for="gender">Gender:</label>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br><br>
+        <button onclick="submitForm()">Submit & Logout</button>
+      </form>
+    </div>
+    <div id="message-container" style="display: none">
+      <p>Application accepted.</p>
+      <a href="home.html">Return to Home Page</a>
+    </div>
+    <script>
+      function showForm() {
+        document.getElementById("form-container").style.display = "block";
+      }
+
+      function submitForm() {
+        // handle form submission and validation here
+        document.getElementById("form-container").style.display = "none";
+        document.getElementById("message-container").style.display = "block";
+      }
+    </script>
+  </body>
+</html>

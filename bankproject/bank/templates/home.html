@@ -1,0 +1,112 @@
+{% load static %}
+<html>
+  <head>
+    <style>
+     body {
+      color: red;
+      text-align: center;
+      }
+     h1 {
+            border-bottom: 1px solid;
+        }
+        h4 {
+            font-weight: 400;
+        }
+        a:hover {
+            text-decoration: none;
+        }
+
+        .foot {
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+        }
+    </style>
+  </head>
+  <head>
+       <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" type="css" href="css/normalize.css">
+        <link rel="stylesheet" type="css" href="css/font-awesome.css">
+        <link rel="stylesheet" type="css" href="css/owl.carousel.min.css">
+        <link rel="stylesheet" type="css" href="css/webslidemenu.css">
+        <link rel="stylesheet" type="css" href="css/style.css">
+        <link rel="stylesheet" type="css" href="css/newstyle.css">
+        <link rel="stylesheet" type="css" href="css/responsive.css">
+  </head>
+  <body>
+<!--    <h1>Hello</h1>-->
+
+<!--    <p> Welcome to the Our site</p>-->
+<!--    <div>-->
+<!--      <a href="{% url 'register' %}">Sign Up</a>-->
+
+<!--      <a href="{% url 'login' %}">Login</a>-->
+<!--    </div>-->
+   <div class="container text-center">
+        <h1>Welcome to UnionBank</h1>
+        <h4><em>We Do Not Delay Your Transaction</em></h4>
+    </div>
+
+    <br>
+
+    <div class="container">
+        <a href="{% url 'register' %}"><button class="btn btn-primary btn-block" id="acc"><i class="fa fa-user"></i> Create new account</button></a>
+
+        <a href="{% url 'login' %}"><button class="btn btn-danger btn-block" id="sign_in"><i class="fa fa-sign-in"></i> Sign in</button></a>
+        <br> <br>
+        <a href="{% url 'form' %}"><button class="btn btn-primary btn-block" id="fcc"><i class="fa fa-user"></i>Fill the form</button></a>
+        <br> <br>
+<!--    <label for="district">Branches</label>-->
+
+<!--      <select name="district" id="district" class="district-dropdown">-->
+<!--        <option value="">&#45;&#45;Select District&#45;&#45;</option>-->
+<nav>
+        <ul>
+        <li class="dropdown">
+				<select id="districts" onchange="location = this.value;">
+					<option value="" selected disabled>Select a district</option>
+					<option value="https://en.wikipedia.org/wiki/kozhikode">Kozhikode</option>
+					<option value="https://en.wikipedia.org/wiki/kannur">Kannur</option>
+					<option value="https://en.wikipedia.org/wiki/malappuram">Malappuram</option>
+					<option value="https://en.wikipedia.org/wiki/ernakulam">Ernakulam</option>
+					<option value="https://en.wikipedia.org/wiki/thrissur">Thrissur</option>
+				</select>
+			</li>
+		</ul>
+    </nav>
+
+
+
+
+
+<!--          <option value="Kasargod">Kasargod</option>-->
+<!--          <option value="Kannur">Kannur</option>-->
+<!--          <option value="Kozhikode">Kozhikode</option>-->
+<!--          <option value="Wayanad">Wayanad</option>-->
+<!--          <option value="Malappuram">Malappuram</option>-->
+<!--          <option value="Thrissur">Thrissur</option>-->
+<!--          <option value="Palakkad">Palakkad</option>-->
+<!--          <option value="Ernamkulam">Ernamkulam</option>-->
+<!--          <option value="Idukki">Idukki</option>-->
+<!--          <option value="Alappuzha">Alappuzha</option>-->
+<!--          <option value="Kottayam">Kottayam</option>-->
+<!--          <option value="Kollam">Kollam</option>-->
+<!--          <option value="Pathanamthitta">Pathanamthitta</option>-->
+<!--          <option value="Trivandrum">Trivandrum</option>-->
+
+    </div>
+
+    <br>
+  <div class="container">
+      <p><h2>THE LATEST</h2>
+          Customers are requested to note that old cheque books are being phased out with new ones having additional security features w.e.f. 01.07.2021. Please contact your branch manager for replacement of old cheque book with new cheque book well before the said date. If you have already issued cheque from old cheque book, please get it replaced with new cheque immeditely. On receipt of confirmation from you, Bank will delete the old cheque book records from Core Banking Solution (CBS) system.
+
+You have registered for mandatory additional layer of security, by choosing 3 challenge questions and answering them. In case of providing incorrect answers to the such challenge questions your Internet Banking shall be blocked. In such case, please call our Customer Service at 1800-2222-44 & 1800-208-2244 and choose option no. 2 for further process.
+
+PSB Alliance Doorstep Banking Services available
+
+Bank has introduced 3 Factor Authentication (FA) to enhance the security features of your accounts, one time registration for the same is mandatory. Know more</p>
+  </div>
+  </body>
+</html>

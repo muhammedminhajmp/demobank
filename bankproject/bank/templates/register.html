@@ -1,0 +1,92 @@
+<!--<Html>-->
+<!--<head>-->
+<!--<title>-->
+<!--Registration Page-->
+<!--</title>-->
+<!--</head>-->
+<!--<body bgcolor="lightgreen">-->
+<!--<br>-->
+<!--<br>-->
+<!--<form action="register" method="post" >-->
+<!--<label>Username : </label>-->
+<!--            <input type="text" placeholder="Enter Username" name="username" required>-->
+<!--<br> <br>-->
+<!--Password:-->
+<!--<input type="Password" id="pass" name="pass"> <br>-->
+<!--<br> <br>-->
+<!--Re-type password:-->
+<!--<input type="Password" id="repass" name="repass"> <br> <br>-->
+<!--&lt;!&ndash;    <a class="btn btn-primary" href="{% url 'login' %}">Submit</a>&ndash;&gt;-->
+<!--    <input type="button" value="Submit" onclick="location.href='{% url 'login' %}'"/>-->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+Body {
+  font-family: Calibri, Helvetica, sans-serif;
+  background-color: blue;
+}
+button {
+       background-color: black;
+       width: 100%;
+        color: orange;
+        padding: 15px;
+        margin: 10px 0px;
+        border: none;
+        cursor: pointer;
+         }
+
+ input[type=text], input[type=password] {
+        width: 100%;
+        margin: 8px 0;
+        padding: 12px 20px;
+        display: inline-block;
+        border: 2px solid red;
+        box-sizing: border-box;
+    }
+ button:hover {
+        opacity: 0.7;
+    }
+ form {
+        border: 3px solid #f1f1f1;
+    }
+ .cancelbtn {
+        width: auto;
+        padding: 10px 18px;
+        margin: 10px 5px;
+    }
+
+ .container {
+        padding: 25px;
+        background-color: lightgray;
+    }
+</style>
+</head>
+<body bgcolor="lightgreen">
+<h2>Registration</h2>
+<form action="register" method="post">
+    {% csrf_token %}
+    <div class="container">
+    <label>Username:</label>
+    <input type="text" name="username" placeholder="enter your username"><br>
+<!--    <input type="text" name="first_name" placeholder="enter your first name"><br>-->
+<!--    <input type="text" name="last_name" placeholder="enter your last name"><br>-->
+<!--    <input type="email" name="email" placeholder="enter your email adress"><br>-->
+    <label>Password:</label>
+    <input type="password" name="password" placeholder="enter your password"><br>
+    <label>Confirm Password:</label>
+    <input type="password" name="cpassword" placeholder="confirm password"><br>
+    <input type="submit" style="background-color:green"><br>
+        </div>
+</form>
+{% for msg in messages %}
+<h2>{{msg}}</h2>
+{% endfor %}
+</body>
+</html>

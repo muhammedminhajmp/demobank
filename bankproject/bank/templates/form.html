@@ -1,0 +1,177 @@
+{% load static %}
+<Html>
+<head>
+    <title>Application Form</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        // Array of districts
+        var districts = ["Kozhikode", "Kannur", "Ernakulam", "Wayanad", "Malappuram"];
+
+        // Dependent dropdown for branches
+        var branches = {
+          "Kozhikode": ["Vadakara", "koyilandy", "westhill","nadapuram"],
+          "Kannur": ["mahi", "thalassery", "payannur"],
+          "Ernakulam": ["idapally", "fortkochi", "aluva"],
+          "Wayanad": ["Kalpetta", "Sulthan Bathery", "Mananthavady"],
+          "Malappuram": ["tirur", "kottakal", "tanur","mancheri"]
+        };
+
+        // Populating district dropdown with options
+        $.each(districts, function(i, district) {
+          $('#district').append($('<option>', {
+            value: district,
+            text : district
+          }));
+        });
+
+        // Populating branch dropdown based on district selection
+        $('#district').on('change', function() {
+          var selected_district = $(this).val();
+          var branch_options = '';
+          $.each(branches[selected_district], function(i, branch) {
+            branch_options += '<option value="' + branch + '">' + branch + '</option>';
+          });
+          $('#branch').html(branch_options);
+        });
+      });
+    </script>
+
+    <style>
+		form {
+			display: none;
+		}
+	</style>
+	<script>
+		function showForm() {
+			document.getElementById("myForm").style.display = "block";
+		}
+		function submitForm() {
+        // handle form submission and validation here
+        document.getElementById("form-container").style.display = "none";
+        document.getElementById("message-container").style.display = "block";
+        }
+<!--		function submitForm() {-->
+<!--			// perform form submission logic here-->
+<!--			// ...-->
+
+<!--			// display success message and link to return home-->
+<!--			document.getElementById("successMsg").innerHTML = "Application accepted. ";-->
+<!--			document.getElementById("returnHome").style.display = "inline";-->
+<!--			document.getElementById("myForm").reset(); // reset form fields-->
+<!--			document.getElementById("myForm").style.display = "none"; // hide form-->
+<!--			return false; // prevent page refresh-->
+<!--		}-->
+
+
+	</script>
+
+
+
+</head>
+<body bgcolor="lightgray">
+<h1>Form</h1>
+	<button onclick="showForm()">Open Form</button>
+<br>
+<br>
+<!--<div id="box">-->
+<!--    <span id="button" style="center">Form</span>-->
+<!--<br> <br>-->
+<form id="myForm" method="post" action="form">
+{% csrf_token %}
+<label> Firstname </label>
+<input type="text" name="firstname" size="15"/> <br> <br>
+<label> Middlename: </label>
+<input type="text" name="middlename" size="15"/> <br> <br>
+<label> Lastname: </label>
+<input type="text" name="lastname" size="15"/> <br> <br>
+
+    <label for="district">District:</label>
+      <select id="district" name="district">
+        <option value="">Select District</option>
+      </select><br><br>
+      <label for="branch">Branch:</label>
+      <select id="branch" name="branch">
+        <option value="">Select Branch</option>
+      </select><br><br>
+
+      </select> <br>
+
+<br>
+    <label>
+       DOB: <input type="date"> <br>
+    </label>
+    <br>
+    <label>
+      AGE:  <input type="number"><br>
+    </label>
+<label>
+Gender :
+</label><br>
+<input type="radio" name="male"/> Male <br>
+<input type="radio" name="female"/> Female <br>
+<input type="radio" name="other"/> Other
+<br>
+<br>
+
+<label>
+Phone :
+</label>
+<input type="text" name="country code"  value="+91" size="2"/>
+<input type="text" name="phone" size="10"/> <br> <br>
+Address
+<br>
+<textarea cols="80" rows="5" value="address">
+</textarea>
+<br> <br>
+    <table>
+   <tr>
+    <td> <label for="branch">Account type:</label></td>
+    <td>
+      <select id="branch" name="branch" class="branch-dropdown">
+        <option value="">--Select type--</option>
+        <option value="savings account"> savings account</option>
+        <option value=" current account "> current account</option>
+          <option value="Fixed Deposit Account">Fixed Deposit Account</option>
+      </select></td>
+  </tr>
+        </table>
+    <br> <br>
+Email:
+<input type="email" id="email" name="email"/> <br>
+<br> <br>
+    <label> Material provided <br>
+        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+<label for="vehicle1"> credit card </label>
+<input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+<label for="vehicle2"> debit card </label>
+<input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+<label for="vehicle3"> checkbook </label>
+        <input type="checkbox" id="vehicle4" name="vehicle3" value="Boat">
+<label for="vehicle3"> ATM card </label><br>
+    </label> <br>
+Password:
+<input type="Password" id="pass" name="pass"> <br>
+<br> <br>
+Re-type password:
+<input type="Password" id="repass" name="repass"> <br> <br>
+<!--    <button type="submit" class="btn btn-primary">Submit</button>-->
+    <button onclick="location.href='success'" style="background-color:green">Submit & Logout</button>
+      </form>
+
+    <div id="message-container" style="display: none">
+      <p>Application accepted.</p>
+      <a href="home.html">Return to Home Page</a>
+    </div>
+<!--<input type="button" style="background-color:green"  value="Submit"/>-->
+<!--    <input type="button" style="background-color:red" value="Logout"/>-->
+    <br> <br>
+
+
+<!--    </div>-->
+</body>
+</html>
+
+
+
+
